@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analýza českých malířů od středověku po současnost</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Analýza českých malířů</h1>
+        <h2>Od středověku po současnost</h2>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Domů</a></li>
+            <li><a href="#uvod">Úvod</a></li>
+            <li><a href="#stredovek">Středověk</a></li>
+            <li><a href="#renesance">Renesance</a></li>
+            <li><a href="#baroko">Baroko</a></li>
+            <li><a href="#19stoleti">19. století</a></li>
+            <li><a href="#moderna">Moderna</a></li>
+            <li><a href="#soucasnost">Současnost</a></li>
+            <li><a href="#statistiky">Statistiky</a></li>
+            <li><a href="ceska_typografie.html">Typografie</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="uvod">
+            <h2>Úvod do české malby</h2>
+            <p>Česká malba má bohatou historii sahající od středověkých iluminovaných rukopisů přes renesanční a barokní mistry až po moderní a současné umělce. Tato analýza představuje nejvýznamnější české malíře a jejich díla v kontextu historických období.</p>
+            <div class="timeline">
+                <div class="timeline-item" data-period="Středověk">
+                    <span>1200-1500</span>
+                </div>
+                <div class="timeline-item" data-period="Renesance">
+                    <span>1500-1600</span>
+                </div>
+                <div class="timeline-item" data-period="Baroko">
+                    <span>1600-1750</span>
+                </div>
+                <div class="timeline-item" data-period="19. století">
+                    <span>1750-1900</span>
+                </div>
+                <div class="timeline-item" data-period="Moderna">
+                    <span>1900-1950</span>
+                </div>
+                <div class="timeline-item" data-period="Současnost">
+                    <span>1950-nyní</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="stredovek">
+            <h2>Středověk (1200-1500)</h2>
+            <div class="period-content">
+                <div class="period-text">
+                    <p>Středověká česká malba je charakteristická především iluminovanými rukopisy a nástěnnými malbami. Vrcholným obdobím bylo 14. století za vlády Karla IV., kdy vznikla tzv. česká malířská škola.</p>
+                    <h3>Nejvýznamnější umělci:</h3>
+                    <ul class="artists-list">
+                        <li data-artist="Mistr Theodorik">
+                            <strong>Mistr Theodorik</strong> - dvorní malíř Karla IV., autor výzdoby kaple sv. Kříže na Karlštejně
+                        </li>
+                        <li data-artist="Mistr Vyšebrodského oltáře">
+                            <strong>Mistr Vyšebrodského oltáře</strong> - autor cyklu devíti deskových obrazů pro cisterciácký klášter ve Vyšším Brodě
+                        </li>
+                        <li data-artist="Mistr Třeboňského oltáře">
+                            <strong>Mistr Třeboňského oltáře</strong> - představitel krásného slohu, autor oltáře pro augustiniánský klášter v Třeboni
+                        </li>
+                    </ul>
+                </div>
+                <div class="period-gallery">
+                    <div class="artwork" data-artist="Mistr Theodorik">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Meister_Theoderich_von_Prag_002.jpg/330px-Meister_Theoderich_von_Prag_002.jpg" alt="Sv. Jeroným, Mistr Theodorik">
+                        <p>Sv. Jeroným, kaple sv. Kříže na Karlštejně</p>
+                    </div>
+                    <div class="artwork" data-artist="Mistr Vyšebrodského oltáře">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Meister_des_Hohenfurther_Zyklus_001.jpg/330px-Meister_des_Hohenfurther_Zyklus_001.jpg" alt="Narození Krista, Mistr Vyšebrodského oltáře">
+                        <p>Narození Krista, Vyšebrodský oltář</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="renesance">
+            <h2>Renesance (1500-1600)</h2>
+            <div class="period-content">
+                <div class="period-text">
+                    <p>Renesanční malba se v českých zemích rozvíjela pod vlivem italských a německých vzorů. Významným centrem byla Praha za vlády Rudolfa II., který shromáždil na svém dvoře mnoho umělců.</p>
+                    <h3>Nejvýznamnější umělci:</h3>
+                    <ul class="artists-list">
+                        <li data-artist="Mistr Litoměřického oltáře">
+                            <strong>Mistr Litoměřického oltáře</strong> - autor oltáře pro katedrálu sv. Štěpána v Litoměřicích
+                        </li>
+                        <li data-artist="Giuseppe Arcimboldo">
+                            <strong>Giuseppe Arcimboldo</strong> - italský malíř působící na dvoře Rudolfa II., známý svými alegorickými portréty
+                        </li>
+                    </ul>
+                </div>
+                <div class="period-gallery">
+                    <div class="artwork" data-artist="Giuseppe Arcimboldo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Giuseppe_Arcimboldo_-_Summer_-_Google_Art_Project.jpg/330px-Giuseppe_Arcimboldo_-_Summer_-_Google_Art_Project.jpg" alt="Léto, Giuseppe Arcimboldo">
+                        <p>Léto, Giuseppe Arcimboldo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="baroko">
+            <h2>Baroko (1600-1750)</h2>
+            <div class="period-content">
+                <div class="period-text">
+                    <p>Barokní malba v českých zemích dosáhla vrcholu v 17. a 18. století. Byla ovlivněna především italskými a nizozemskými vzory a úzce spojena s rekatolizací po třicetileté válce.</p>
+                    <h3>Nejvýznamnější umělci:</h3>
+                    <ul class="artists-list">
+                        <li data-artist="Karel Škréta">
+                            <strong>Karel Škréta</strong> - nejvýznamnější český barokní malíř, autor oltářních obrazů a portrétů
+                        </li>
+                        <li data-artist="Petr Brandl">
+                            <strong>Petr Brandl</strong> - přední představitel vrcholného baroka, známý dramatickým světelným pojetím
+                        </li>
+                        <li data-artist="Václav Vavřinec Reiner">
+                            <strong>Václav Vavřinec Reiner</strong> - specialista na nástěnné a nástropní malby
+                        </li>
+                    </ul>
+                </div>
+                <div class="period-gallery">
+                    <div class="artwork" data-artist="Karel Škréta">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Karel_%C5%A0kr%C3%A9ta_-_Sv._Karel_Boromejsk%C3%BD_nav%C5%A1t%C4%9Bvuje_nemocn%C3%A9_morem.jpg/330px-Karel_%C5%A0kr%C3%A9ta_-_Sv._Karel_Boromejsk%C3%BD_nav%C5%A1t%C4%9Bvuje_nemocn%C3%A9_morem.jpg" alt="Sv. Karel Boromejský navštěvuje nemocné morem, Karel Škréta">
+                        <p>Sv. Karel Boromejský navštěvuje nemocné morem</p>
+                    </div>
+                    <div class="artwork" data-artist="Petr Brandl">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Petr_Brandl_-_Simeon_with_the_Infant_Christ_-_Google_Art_Project.jpg/330px-Petr_Brandl_-_Simeon_with_the_Infant_Christ_-_Google_Art_Project.jpg" alt="Simeon s Ježíškem, Petr Brandl">
+                        <p>Simeon s Ježíškem</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="19stoleti">
+            <h2>19. století (1750-1900)</h2>
+            <div class="period-content">
+                <div class="period-text">
+                    <p>19. století přineslo rozvoj národního umění v kontextu národního obrození. Malíři se inspirovali českou historií a krajinou, později se prosadil realismus a impresionismus.</p>
+                    <h3>Nejvýznamnější umělci:</h3>
+                    <ul class="artists-list">
+                        <li data-artist="Josef Mánes">
+                            <strong>Josef Mánes</strong> - romantický malíř, autor Orloje a mnoha portrétů a krajin
+                        </li>
+                        <li data-artist="Mikoláš Aleš">
+                            <strong>Mikoláš Aleš</strong> - autor historických a národopisných výjevů, ilustrátor
+                        </li>
+                        <li data-artist="Antonín Slavíček">
+                            <strong>Antonín Slavíček</strong> - přední český krajinář, představitel impresionismu
+                        </li>
+                        <li data-artist="Josef Václav Myslbek">
+                            <strong>Josef Václav Myslbek</strong> - sochař a malíř, autor sochy sv. Václava
+                        </li>
+                    </ul>
+                </div>
+                <div class="period-gallery">
+                    <div class="artwork" data-artist="Josef Mánes">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Josef_Manes_-_Josefina.jpg/330px-Josef_Manes_-_Josefina.jpg" alt="Josefina, Josef Mánes">
+                        <p>Josefina</p>
+                    </div>
+                    <div class="artwork" data-artist="Antonín Slavíček">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Anton%C3%ADn_Slav%C3%AD%C4%8Dek_-_U_n%C3%A1s_v_Kameničk%C3%A1ch.jpg/330px-Anton%C3%ADn_Slav%C3%AD%C4%8Dek_-_U_n%C3%A1s_v_Kameničk%C3%A1ch.jpg" alt="U nás v Kameničkách, Antonín Slavíček">
+                        <p>U nás v Kameničkách</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="moderna">
+            <h2>Moderna (1900-1950)</h2>
+            <div class="period-content">
+                <div class="period-text">
+                    <p>První polovina 20. století přinesla rozkvět moderních směrů jako kubismus, expresionismus a surrealismus. Česká moderna se stala součástí evropské avantgardy.</p>
+                    <h3>Nejvýznamnější umělci:</h3>
+                    <ul class="artists-list">
+                        <li data-artist="František Kupka">
+                            <strong>František Kupka</strong> - průkopník abstraktního umění, jeden z prvních neofigurativních malířů
+                        </li>
+                        <li data-artist="Emil Filla">
+                            <strong>Emil Filla</strong> - představitel kubismu, člen skupiny Osma
+                        </li>
+                        <li data-artist="Josef Čapek">
+                            <strong>Josef Čapek</strong> - malíř, spisovatel a ilustrátor, představitel kubismu a primitivismus
+                        </li>
+                        <li data-artist="Toyen">
+                            <strong>Toyen (Marie Čermínová)</strong> - surrealistická malířka, členka Devětsilu
+                        </li>
+                        <li data-artist="Jan Zrzavý">
+                            <strong>Jan Zrzavý</strong> - symbolistní malíř s osobitým stylem
+                        </li>
+                    </ul>
+                </div>
+                <div class="period-gallery">
+                    <div class="artwork" data-artist="František Kupka">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Frantisek_Kupka%2C_1912%2C_Amorpha%2C_fugue_en_deux_couleurs_%28Fugue_in_Two_Colors%29%2C_210_x_200_cm%2C_Narodni_Galerie%2C_Prague.jpg/330px-Frantisek_Kupka%2C_1912%2C_Amorpha%2C_fugue_en_deux_couleurs_%28Fugue_in_Two_Colors%29%2C_210_x_200_cm%2C_Narodni_Galerie%2C_Prague.jpg" alt="Amorpha, fugue en deux couleurs, František Kupka">
+                        <p>Amorpha, fugue en deux couleurs</p>
+                    </div>
+                    <div class="artwork" data-artist="Toyen">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Toyen_-_Spici_%281937%29.jpg/330px-Toyen_-_Spici_%281937%29.jpg" alt="Spící, Toyen">
+                        <p>Spící</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="soucasnost">
+            <h2>Současnost (1950-nyní)</h2>
+            <div class="period-content">
+                <div class="period-text">
+                    <p>Poválečné a současné umění zahrnuje širokou škálu stylů od informelu přes novou figuraci až po konceptuální umění a postmodernu. Významným mezníkem byl rok 1989, který přinesl svobodu uměleckého vyjádření.</p>
+                    <h3>Nejvýznamnější umělci:</h3>
+                    <ul class="artists-list">
+                        <li data-artist="Mikuláš Medek">
+                            <strong>Mikuláš Medek</strong> - představitel informelu a existenciálního umění
+                        </li>
+                        <li data-artist="Jiří Kolář">
+                            <strong>Jiří Kolář</strong> - průkopník koláže a experimentální poezie
+                        </li>
+                        <li data-artist="Adriena Šimotová">
+                            <strong>Adriena Šimotová</strong> - autorka křehkých papírových objektů a figurálních děl
+                        </li>
+                        <li data-artist="Karel Malich">
+                            <strong>Karel Malich</strong> - sochař a malíř, autor drátěných plastik
+                        </li>
+                        <li data-artist="Jiří David">
+                            <strong>Jiří David</strong> - postmoderní malíř a konceptuální umělec
+                        </li>
+                    </ul>
+                </div>
+                <div class="period-gallery">
+                    <div class="artwork" data-artist="Mikuláš Medek">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Mikul%C3%A1%C5%A1_Medek_-_Krizovnici.jpg/330px-Mikul%C3%A1%C5%A1_Medek_-_Krizovnici.jpg" alt="Křižovníci, Mikuláš Medek">
+                        <p>Křižovníci</p>
+                    </div>
+                    <div class="artwork" data-artist="Adriena Šimotová">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Adriena_%C5%A0imotov%C3%A1_-_Tv%C3%A1%C5%99.jpg/330px-Adriena_%C5%A0imotov%C3%A1_-_Tv%C3%A1%C5%99.jpg" alt="Tvář, Adriena Šimotová">
+                        <p>Tvář</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="statistiky">
+            <h2>Statistiky a analýzy</h2>
+            <div class="charts-container">
+                <div class="chart-wrapper">
+                    <h3>Počet významných umělců podle období</h3>
+                    <canvas id="artistsChart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <h3>Vývoj uměleckých stylů v čase</h3>
+                    <canvas id="stylesChart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <h3>Nejčastější náměty podle období</h3>
+                    <canvas id="themesChart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <h3>Zastoupení v národních sbírkách</h3>
+                    <canvas id="collectionsChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Analýza českých malířů | Vytvořeno pro studijní účely | <a href="https://github.com/tmsrb24/lux" style="color: white; text-decoration: underline;">GitHub</a></p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

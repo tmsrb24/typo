@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Česká typografie | Od středověku po současnost</title>
+    <style>
+        :root {
+            --primary-color: #c83737;
+            --secondary-color: #2d2d2d;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --accent-color: #e6e6e6;
+            --font-primary: 'Baskerville', serif;
+            --font-secondary: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        /* Tmavý režim */
+        .dark-mode {
+            --primary-color: #ff5252;
+            --secondary-color: #1a1a1a;
+            --background-color: #121212;
+            --text-color: #f0f0f0;
+            --accent-color: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-secondary);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-primary);
+            font-weight: normal;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            line-height: 1.8;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 3rem 0;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .gallery-item {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .gallery-caption {
+            padding: 1rem;
+        }
+        
+        .gallery-caption h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .chart-container {
+            margin: 3rem 0;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .designer-profile {
+            display: flex;
+            margin: 2rem 0;
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .designer-img {
+            width: 200px;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .designer-info {
+            padding: 1.5rem;
+            flex: 1;
+        }
+        
+        .designer-info h3 {
+            margin-top: 0;
+        }
+        
+        .designer-years {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .font-sample {
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: var(--accent-color);
+            border-radius: 5px;
+            font-size: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .designer-profile {
+                flex-direction: column;
+            }
+            
+            .designer-img {
+                width: 100%;
+                height: 300px;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Tlačítko pro přepínání tmavého režimu */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Navigační menu */
+        .nav-menu {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        /* Fallback obrázky */
+        .fallback-img {
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            font-style: italic;
+        }
+        
+        /* Animace pro timeline */
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Tlačítko zpět nahoru */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <button id="themeToggle" class="theme-toggle" title="Přepnout tmavý režim">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <button id="backToTop" class="back-to-top" title="Zpět nahoru">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <header>
+        <div class="container">
+            <h1>Česká typografie</h1>
+            <p>Od středověku po současnost</p>
+        </div>
+    </header>
+    
+    <nav class="nav-menu">
+        <div class="nav-container">
+            <a href="#historie" class="nav-item">Historie</a>
+            <a href="#osobnosti" class="nav-item">Osobnosti</a>
+            <a href="#data" class="nav-item">Data a grafy</a>
+            <a href="#galerie" class="nav-item">Galerie</a>
+        </div>
+    </nav>
+    
+    <main class="container">
+        <section class="intro">
+            <p>Česká typografie má bohatou historii sahající od středověkých rukopisů až po moderní digitální design. Její vývoj byl ovlivněn jak domácími tradicemi, tak zahraničními vlivy, přičemž čeští typografové dokázali vytvořit jedinečný styl, který reflektuje kulturní a historické souvislosti.</p>
+        </section>
+        
+        <section id="historie">
+            <h2>Historický vývoj</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">14.-15. století</div>
+                    <h3>Středověk a počátky knihtisku</h3>
+                    <p>Období iluminovaných rukopisů jako Velislavova bible či Pasionál abatyše Kunhuty. V roce 1468 byla vytištěna Kronika trojánská, první česky tištěná kniha. Významným dílem je také Bible kutnohorská z roku 1489.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">16.-17. století</div>
+                    <h3>Renesance a baroko</h3>
+                    <p>Rozvoj tiskařských dílen pod vedením osobností jako Jiří Melantrich z Aventina či Daniel Adam z Veleslavína. Vrcholným dílem je Bratrská bible kralická (1579-1594), která používala vlastní písmo.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">19. století</div>
+                    <h3>Národní obrození</h3>
+                    <p>Obrozenecké tisky Josefa Jungmanna a Františka Palackého. Vzniká Haasova písmolijna v Praze, která produkuje první moderní česká písma.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">1900-1945</div>
+                    <h3>Moderna a meziválečné období</h3>
+                    <p>Vojtěch Preissig přináší moderní přístupy k typografii a vytváří originální písma. Ladislav Sutnar rozvíjí funkcionalismus v typografii a informační design. Karel Teige experimentuje s avantgardní typografií v rámci poetismu.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">1945-1989</div>
+                    <h3>Poválečné období a socialismus</h3>
+                    <p>Josef Týfa vytváří písmo Týfa Antikva. Oldřich Menhart, významný kaligraf, navrhuje Menhart Antikvu. Státní tiskárny přinášejí standardizaci a unifikaci.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">1990-současnost</div>
+                    <h3>Současná česká typografie</h3>
+                    <p>František Štorm zakládá Střešovickou písmolijnu a vytváří mnoho digitálních písem. Tomáš Brousil rozvíjí Suitcase Type Foundry. Vojtěch Říha experimentuje s novými přístupy v Superior Type.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="osobnosti">
+            <h2>Nejvýznamnější osobnosti</h2>
+            
+            <div class="designer-profile">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Vojtech_Preissig.jpg/330px-Vojtech_Preissig.jpg" alt="Vojtěch Preissig" class="designer-img">
+                <div class="designer-info">
+                    <h3>Vojtěch Preissig</h3>
+                    <div class="designer-years">1873-1944</div>
+                    <p>Průkopník moderní české typografie, který kombinoval secesní prvky s moderními přístupy. Vytvořil písmo Preissig Antikva a působil také v USA, kde ovlivnil vývoj americké typografie.</p>
+                    <p>Jeho experimentální přístupy k typografii a knižní úpravě byly ve své době revoluční a dodnes inspirují současné designéry.</p>
+                    <div class="font-sample" style="font-family: serif;">Ukázka písma Preissig Antikva</div>
+                </div>
+            </div>
+            
+            <div class="designer-profile">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Ladislav_Sutnar.jpg/330px-Ladislav_Sutnar.jpg" alt="Ladislav Sutnar" class="designer-img">
+                <div class="designer-info">
+                    <h3>Ladislav Sutnar</h3>
+                    <div class="designer-years">1897-1976</div>
+                    <p>Průkopník informačního designu a funkcionalistického přístupu k typografii. Po emigraci do USA významně ovlivnil vývoj vizuální komunikace a informačního designu.</p>
+                    <p>Jeho práce se vyznačuje jasnou strukturou, funkčností a inovativním využitím typografie pro zlepšení komunikace.</p>
+                    <div class="font-sample" style="font-family: sans-serif;">Ukázka funkcionalistické typografie</div>
+                </div>
+            </div>
+            
+            <div class="designer-profile">
+                <img src="https://www.typotheque.com/images/articles/menhart_portrait.jpg" alt="Oldřich Menhart" class="designer-img">
+                <div class="designer-info">
+                    <h3>Oldřich Menhart</h3>
+                    <div class="designer-years">1897-1962</div>
+                    <p>Nejvýznamnější český kaligraf a tvůrce písem 20. století. Vytvořil písma jako Menhart Antikva a Manuscript, která spojují tradici s moderním přístupem.</p>
+                    <p>Jeho rukopisný styl vycházel z kaligrafické tradice, ale zároveň reflektoval moderní typografické trendy.</p>
+                    <div class="font-sample" style="font-family: serif;">Ukázka písma Menhart Antikva</div>
+                </div>
+            </div>
+            
+            <div class="designer-profile">
+                <img src="https://www.typotheque.com/images/articles/storm_portrait.jpg" alt="František Štorm" class="designer-img">
+                <div class="designer-info">
+                    <h3>František Štorm</h3>
+                    <div class="designer-years">1966-</div>
+                    <p>Zakladatel Střešovické písmolijny (1993) a tvůrce více než 200 digitálních písem. Jeho tvorba zahrnuje jak revitalizace historických písem, tak originální návrhy.</p>
+                    <p>Mezi jeho nejznámější písma patří Baskerville Original, John Sans a Tusar. Jeho práce kombinuje respekt k typografické tradici s inovativními přístupy.</p>
+                    <div class="font-sample" style="font-family: serif;">Ukázka písma Štorm Baskerville</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="data">
+            <h2>Vývoj české typografie v datech</h2>
+            
+            <div class="chart-container">
+                <canvas id="timelineChart"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="influenceChart"></canvas>
+            </div>
+        </section>
+        
+        <section id="galerie">
+            <h2>Galerie významných děl</h2>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://www.typografie.cz/images/bible-kralicka.jpg" alt="Bible kralická" class="gallery-img">
+                    <div class="gallery-caption">
+                        <h4>Bible kralická</h4>
+                        <p>1579-1594, první kompletní překlad bible z původních jazyků do češtiny</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://www.typografie.cz/images/preissig-plakat.jpg" alt="Plakát Vojtěcha Preissiga" class="gallery-img">
+                    <div class="gallery-caption">
+                        <h4>Plakát Vojtěcha Preissiga</h4>
+                        <p>Ukázka avantgardní typografie z počátku 20. století</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://www.typografie.cz/images/sutnar-katalog.jpg" alt="Katalog Ladislava Sutnara" class="gallery-img">
+                    <div class="gallery-caption">
+                        <h4>Katalog Ladislava Sutnara</h4>
+                        <p>Ukázka funkcionalistického přístupu k informačnímu designu</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://www.typografie.cz/images/menhart-pismo.jpg" alt="Menhart Antikva" class="gallery-img">
+                    <div class="gallery-caption">
+                        <h4>Menhart Antikva</h4>
+                        <p>Ukázka písma Oldřicha Menharta z roku 1934</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://www.typografie.cz/images/tyfa-antikva.jpg" alt="Týfa Antikva" class="gallery-img">
+                    <div class="gallery-caption">
+                        <h4>Týfa Antikva</h4>
+                        <p>Písmo Josefa Týfy z roku 1959</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://www.typografie.cz/images/storm-pismo.jpg" alt="Písmo Františka Štorma" class="gallery-img">
+                    <div class="gallery-caption">
+                        <h4>Štorm Baskerville</h4>
+                        <p>Moderní digitální písmo Františka Štorma</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Česká typografie | Vytvořeno pro vzdělávací účely</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Data pro grafy
+        document.addEventListener('DOMContentLoaded', function() {
+            // Přepínání tmavého režimu
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('i');
+            
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                
+                if (document.body.classList.contains('dark-mode')) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+                
+                // Překreslení grafů při změně tématu
+                timelineChart.update();
+                influenceChart.update();
+            });
+            
+            // Tlačítko zpět nahoru
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.style.display = 'flex';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+            
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Animace timeline položek
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            timelineItems.forEach(item => {
+                observer.observe(item);
+            });
+            
+            // Ošetření chybějících obrázků
+            const galleryImages = document.querySelectorAll('.gallery-img');
+            
+            galleryImages.forEach(img => {
+                img.addEventListener('error', function() {
+                    const parent = this.parentElement;
+                    const alt = this.alt;
+                    
+                    // Vytvoření náhradního prvku
+                    const fallback = document.createElement('div');
+                    fallback.className = 'gallery-img fallback-img';
+                    fallback.textContent = alt || 'Obrázek není dostupný';
+                    fallback.style.height = '200px';
+                    
+                    // Nahrazení obrázku
+                    parent.replaceChild(fallback, this);
+                });
+            });
+            
+            // Ošetření chybějících profilových obrázků
+            const profileImages = document.querySelectorAll('.designer-img');
+            
+            profileImages.forEach(img => {
+                img.addEventListener('error', function() {
+                    const alt = this.alt;
+                    
+                    // Vytvoření náhradního prvku
+                    const fallback = document.createElement('div');
+                    fallback.className = 'designer-img fallback-img';
+                    fallback.textContent = alt || 'Portrét není dostupný';
+                    
+                    // Nahrazení obrázku
+                    this.parentElement.replaceChild(fallback, this);
+                });
+            });
+            // Graf časové osy
+            const timelineCtx = document.getElementById('timelineChart').getContext('2d');
+            const timelineChart = new Chart(timelineCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Středověk', 'Renesance', 'Baroko', 'Národní obrození', 'Moderna', 'Meziválečné', 'Poválečné', 'Současnost'],
+                    datasets: [{
+                        label: 'Počet významných typografických děl',
+                        data: [5, 12, 8, 15, 25, 40, 30, 60],
+                        backgroundColor: '#c83737',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Počet významných děl'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Historické období'
+                            }
+                        }
+                    },
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Vývoj typografické produkce v čase',
+                            font: {
+                                size: 18
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Graf vlivů
+            const influenceCtx = document.getElementById('influenceChart').getContext('2d');
+            const influenceChart = new Chart(influenceCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Domácí tradice', 'Německý vliv', 'Francouzský vliv', 'Italský vliv', 'Anglosaský vliv', 'Sovětský vliv', 'Digitální revoluce'],
+                    datasets: [{
+                        data: [30, 20, 15, 10, 10, 5, 10],
+                        backgroundColor: [
+                            '#c83737',
+                            '#e05d5d',
+                            '#e88383',
+                            '#f0a9a9',
+                            '#2d2d2d',
+                            '#4d4d4d',
+                            '#6d6d6d'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Vlivy na českou typografii',
+                            font: {
+                                size: 18
+                            }
+                        },
+                        legend: {
+                            position: 'right'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
